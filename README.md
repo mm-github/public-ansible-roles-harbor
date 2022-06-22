@@ -1,5 +1,7 @@
 # Ansible Role: Harbor
 
+Updated role to work with modern ansible versions due to some deprications, as source role seems no longer updated
+
 An Ansible Role that installs [Harbor](https://github.com/goharbor/harbor) on Linux.
 
 This role is in alpha stage. Issues and PRs are welcome.
@@ -174,4 +176,5 @@ If you are running the playbook again to ensure the list of users but you have a
 
 ## Author Information
 
-This role was created in 2019 by [Nicholas Amorim](https://github.com/nicholasamorim).
+This role was created in 2019 by [Nicholas Amorim](https://github.com/nicholasamorim)
+and now updated by [Pascal Watteel](https://github.com/piwi3910/ansible-role-harbor) in 2022
