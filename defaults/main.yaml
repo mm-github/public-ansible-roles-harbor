@@ -57,6 +57,6 @@ harbor_api_url: "{{ harbor_ui_url_protocol }}://{{ harbor_hostname }}:{{ harbor_
 #     auto_scan: "true"
 
 
-harbor_installer_with: "{% for e in harbor_extras %} {{ '--with-%s'|format(e) }} {% endfor %}"
-harbor_extra_compose_files: "{% for e in harbor_extras %} + ['docker-compose.{{e}}.yml'] {% endfor %}"
+#harbor_installer_with: "{% for e in harbor_extras %} {{ '--with-%s'|format(e) }} {% endfor %}"
+#harbor_extra_compose_files: "{% for e in harbor_extras %} + ['docker-compose.{{e}}.yml'] {% endfor %}"
 harbor_docker_compose_files: "['docker-compose.yml'] {{ harbor_extra_compose_files }} "
