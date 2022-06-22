@@ -83,7 +83,7 @@
 
 - name: Running Harbor installer...
   become: yes
-  command: "./install.sh {{ harbor_installer_with }} {{ harbor_installer_extra_args }}"
+  command: "./install.sh {{ harbor_installer_with }}"
   args:
     chdir: "{{ harbor_install_dir }}/harbor"
     creates: '{{ harbor_install_dir }}/harbor/harbor_install_log.txt'
