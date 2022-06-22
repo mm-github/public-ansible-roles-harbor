@@ -1,8 +1,7 @@
 ---
 harbor_release: 2.5.1
 harbor_version: 2.5.1
-harbor_url: "https://storage.googleapis.com/harbor-releases/release-{{ harbor_release }}/harbor-offline-installer-v{{ harbor_version }}.tgz"
-
+harbor_url: "https://github.com/goharbor/harbor/releases/download/v{{ harbor_release }}/harbor-offline-installer-v{{ harbor_version }}.tgz"
 
 harbor_installer_extra_args:
 harbor_extras:
