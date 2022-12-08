@@ -82,7 +82,7 @@
     - "nginx.https.conf"
 
 - name: Running Harbor installer...
-  become: yes
+  become: true
   command: "./install.sh {{ harbor_installer_with }}"
   args:
     chdir: "{{ harbor_install_dir }}/harbor"
