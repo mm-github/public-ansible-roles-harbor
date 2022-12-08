@@ -34,10 +34,10 @@
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
 
-- name: Copying over harbor.cfg
+- name: Copying over harbor.yml template
   template:
-    src: harbor.cfg.j2
-    dest: "{{ harbor_install_dir }}/harbor/harbor.cfg"
+    src: harbor.yml.j2
+    dest: "{{ harbor_install_dir }}/harbor/harbor.yml"
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
 
