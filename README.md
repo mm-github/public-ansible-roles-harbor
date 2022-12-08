@@ -179,4 +179,4 @@ If you are running the playbook again to ensure the list of users but you have a
 ## Author Information
 
 This role was created in 2019 by [Nicholas Amorim](https://github.com/nicholasamorim)
-and now updated by [Pascal Watteel](https://github.com/piwi3910/ansible-role-harbor) in 2022
+and now updated by [Pascal Watteel](https://github.com/piwi3910/ansible-role-harbor) and Michele Modolo in 2022
