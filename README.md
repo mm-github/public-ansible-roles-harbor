@@ -1,5 +1,7 @@
 # Ansible Role: Harbor
 
+Cloned from https://github.com/piwi3910/ansible-role-harbor The followign lines are still from piwi3910
+
 Updated role to work with modern ansible versions due to some deprications, as source role seems no longer updated
 
 An Ansible Role that installs [Harbor](https://github.com/goharbor/harbor) on Linux.
