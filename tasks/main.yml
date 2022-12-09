@@ -41,12 +41,12 @@
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
 
-- name: Copying over docker-compose.yml
-  template:
-    src: docker-compose.yml.j2
-    dest: "{{ harbor_install_dir }}/harbor/docker-compose.yml"
-  when:
-    - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
+# - name: Copying over docker-compose.yml
+#   template:
+#     src: docker-compose.yml.j2
+#     dest: "{{ harbor_install_dir }}/harbor/docker-compose.yml"
+#   when:
+#     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
 
 - name: Copying over prepare script
   template:
@@ -134,21 +134,21 @@
 #   with_items: "{{ harbor_projects }}"
 
 
-- name: "Creating projects..."
-  uri:
-    url: "{{ harbor_api_url }}/projects"
-    method: POST
-    user: "admin"
-    password: "{{ harbor_admin_password | default('Harbor12345') }}"
-    status_code:
-      - 201
-      - 409 # already created
-    body_format: json
-    force_basic_auth: yes
-    return_content: yes
-    body: "{{ lookup('template', 'templates/create_project.j2') }}"
-  when: harbor_projects is defined
-  with_items: "{{ harbor_projects }}"
+# - name: "Creating projects..."
+#   uri:
+#     url: "{{ harbor_api_url }}/projects"
+#     method: POST
+#     user: "admin"
+#     password: "{{ harbor_admin_password | default('Harbor12345') }}"
+#     status_code:
+#       - 201
+#       - 409 # already created
+#     body_format: json
+#     force_basic_auth: yes
+#     return_content: yes
+#     body: "{{ lookup('template', 'templates/create_project.j2') }}"
+#   when: harbor_projects is defined
+#   with_items: "{{ harbor_projects }}"
 
 
 # - debug:
@@ -157,18 +157,18 @@
 #   with_items: "{{ harbor_users }}"
 
 
-- name: "Creating users..."
-  uri:
-    url: "{{ harbor_api_url }}/users"
-    method: POST
-    user: "admin"
-    password: "{{ harbor_admin_password | default('Harbor12345') }}"
-    status_code:
-      - 201
-      - 409 # already created
-    body_format: json
-    force_basic_auth: yes
-    return_content: yes
-    body: "{{ lookup('template', 'templates/create_user.j2') }}"
-  when: harbor_users is defined and harbor_self_registration == "off"
-  with_items: "{{ harbor_users }}"
+# - name: "Creating users..."
+#   uri:
+#     url: "{{ harbor_api_url }}/users"
+#     method: POST
+#     user: "admin"
+#     password: "{{ harbor_admin_password | default('Harbor12345') }}"
+#     status_code:
+#       - 201
+#       - 409 # already created
+#     body_format: json
+#     force_basic_auth: yes
+#     return_content: yes
+#     body: "{{ lookup('template', 'templates/create_user.j2') }}"
+#   when: harbor_users is defined and harbor_self_registration == "off"
+#   with_items: "{{ harbor_users }}"
