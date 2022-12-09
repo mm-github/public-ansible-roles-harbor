@@ -58,7 +58,7 @@
 
 - name: Creating SSL certs folder
   file:
-    path: '{{ harbor_ssl_cert }}'
+    path: '{{ harbor_ssl_cert | dirname }}'
     state: directory
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
