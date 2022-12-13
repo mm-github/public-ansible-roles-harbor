@@ -17,5 +17,6 @@
     force_basic_auth: yes
     return_content: yes
     body: "{{ lookup('template', 'templates/create_project.j2') }}"
+    validate_certs: {{ validate_certs }}
   when: harbor_projects is defined
   with_items: "{{ harbor_projects }}"
