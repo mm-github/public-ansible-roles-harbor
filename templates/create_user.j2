@@ -1,8 +1,8 @@
 {
   "username": "{{ item.username }}",
   "email": "{{ item.email }}",
-  "password": "{{ item.password | default("HarborUser12345") }}",
-  "realname": "{{ item.name | default(item.username) }}",
+  "password": "{{ item.password | default("MyFirstPassword100") }}",
+  "realname": "{{ item.realname | default(item.username) }}",
   "comment": "{{ item.comment | default('') }}",
   "deleted": false,
   "role_name": "{{ item.role_name | default("developer") }}",
