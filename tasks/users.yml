@@ -18,7 +18,7 @@
     force_basic_auth: yes
     return_content: yes
     body: "{{ lookup('template', 'templates/create_user.j2') }}"
-  when: harbor_users is defined and harbor_self_registration == "off"
+  when: harbor_users is defined # and harbor_self_registration == "off"
   with_items: "{{ harbor_users }}"
 
 
