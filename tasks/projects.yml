@@ -1,7 +1,7 @@
-- debug:
-    msg: "{{ lookup('template', 'templates/create_project.j2') }}"
-  when: harbor_projects is defined
-  with_items: "{{ harbor_projects }}"
+# - debug:
+#     msg: "{{ lookup('template', 'templates/create_project.j2') }}"
+#   when: harbor_projects is defined
+#   with_items: "{{ harbor_projects }}"
 
 
 - name: "Creating projects..."
