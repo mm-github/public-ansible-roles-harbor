@@ -8,6 +8,6 @@
   "name": "{{ item.name }}",
   "type": "{{ item.type }}",
   "url": "{{ item.url }}",
-  "insecure": "{{ item.insecure | default(true) }}",
+  "insecure": {{ item.insecure | default(true) }},
   "description": "{{ item.description | default('') }}"
 }
