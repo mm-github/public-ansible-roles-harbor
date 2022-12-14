@@ -5,7 +5,7 @@
 
 - name: "Creating registries..."
   uri:
-    url: "{{ harbor_api_url }}/registries"
+    url: "{{ harbor_api_url }}/projects/{{ project_name }}/members"
     method: POST
     user: "admin"
     password: "{{ harbor_admin_password | default('Harbor12345') }}"
@@ -15,9 +15,9 @@
     body_format: json
     force_basic_auth: yes
     return_content: yes
-    body: "{{ lookup('template', 'templates/create_registry.j2') }}"
+    body: "{{ lookup('template', 'templates/create_project_members.j2') }}"
     validate_certs: "{{ validate_certs }}"
   when: harbor_registries is defined # and harbor_self_registration == "off"
-  with_items: "{{ harbor_registries }}"
+  with_items: "{{ harbor_project_members }}"
 
 
