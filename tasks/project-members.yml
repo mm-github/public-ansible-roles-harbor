@@ -5,7 +5,7 @@
 
 - name: "Creating project members..."
   uri:
-    url: "{{ harbor_api_url }}/projects/{{ project_name }}/members"
+    url: "{{ harbor_api_url }}/projects/{{ item.project_name }}/members"
     method: POST
     user: "admin"
     password: "{{ harbor_admin_password | default('Harbor12345') }}"
