@@ -5,7 +5,7 @@
 
 - name: "Creating users..."
   uri:
-    url: "{{ harbor_api_url }}/users"
+    url: "{{ harbor_api_url }}/registries"
     method: POST
     user: "admin"
     password: "{{ harbor_admin_password | default('Harbor12345') }}"
