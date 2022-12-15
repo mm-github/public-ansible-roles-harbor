@@ -1,0 +1,23 @@
+# - debug:
+#     msg: "{{ lookup('template', 'templates/create_registry.j2') }}"
+#   when: harbor_users is defined and harbor_self_registration == "off"
+#   with_items: "{{ harbor_registries }}"
+
+- name: "Creating replications..."
+  uri:
+    url: "{{ harbor_api_url }}/replication/policies"
+    method: POST
+    user: "admin"
+    password: "{{ harbor_admin_password | default('Harbor12345') }}"
+    status_code:
+      - 201
+      - 409 # already created
+    body_format: json
+    force_basic_auth: yes
+    return_content: yes
+    body: "{{ lookup('template', 'templates/create_replication_policy.j2') }}"
+    validate_certs: "{{ validate_certs }}"
+  when: harbor_replication_policies is defined # and harbor_self_registration == "off"
+  with_items: "{{ harbor_replication_policies }}"
+
+

@@ -1,0 +1,20 @@
+{
+  "copy_by_chunk": {{ item.copy_by_chunk | default(true) }},
+  "dest_namespace_replace_count": 1,
+  "name": "{{ item.policy_name }}",
+  "description": "{{ item.description | default('') }}",
+  "enabled": {{ item.enabled | default(true) }},
+  "override": {{ item.override | default(true) }},
+  "speed": 0,
+  "src_registry": {
+    "insecure": {{ item.insecure | default(true) }},
+    "name": "{{ item.source_registry_name }}",
+  },
+  "trigger": {
+    "trigger_settings": {},
+    "{{ item.trigger_type | default('manual') }}"
+  },
+  "deletion": {{ item.deletion | default(true) }}
+}
+
+
