@@ -5,7 +5,7 @@
     "access_secret": "{{ item.access_secret | default('') }}",
     "type": "{{ item.credential_type | default('') }}"
   },
-  "id": "{{ item.registry_id }}",
+  "id": {{ item.registry_id }},
   "name": "{{ item.name }}",
   "type": "{{ item.type }}",
   "url": "{{ item.url }}",
