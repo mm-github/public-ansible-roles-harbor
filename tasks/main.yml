@@ -12,7 +12,7 @@
     path: "{{ harbor_install_dir }}/harbor"
   register: harbor_folder_st
 
-- name: "Downloading Harbor {{ harbor_version }} (offline installer)"
+- name: "Downloading Harbor {{ harbor_release }} (offline installer)"
   get_url: url={{ harbor_url }} dest=/tmp/harbor.tgz validate_certs=no
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
