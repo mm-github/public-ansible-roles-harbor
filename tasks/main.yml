@@ -12,10 +12,10 @@
     path: "{{ harbor_install_dir }}/harbor"
   register: harbor_folder_st
 
-- name: "Downloading Harbor {{ harbor_release }} (offline installer)"
-  get_url: url={{ harbor_url }} dest=/tmp/harbor.tgz validate_certs=no
-  when:
-    - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
+# - name: "Downloading Harbor {{ harbor_release }} (offline installer)"
+#   get_url: url={{ harbor_url }} dest=/tmp/harbor.tgz validate_certs=no
+#   when:
+#     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
 
 - name: "Creating Harbor directory... ({{ harbor_install_dir }}/harbor)"
   file:
@@ -25,14 +25,24 @@
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
 
-- name: "Uncompressing Harbor installer..."
+# - name: "Uncompressing Harbor installer..."
+#   unarchive:
+#     remote_src: True
+#     src: /tmp/harbor.tgz
+#     dest: "{{ harbor_install_dir }}"
+#     creates: "{{ harbor_install_dir }}/harbor"
+#   when:
+#     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
+
+- name: "Uncompressing an ALREADY DOWNLOADED Harbor installer..."
   unarchive:
     remote_src: True
-    src: /tmp/harbor.tgz
+    src: /michele/downloaded/downloaded-harbor-offline-installer-v2.7.0.tgz
     dest: "{{ harbor_install_dir }}"
     creates: "{{ harbor_install_dir }}/harbor"
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
+
 
 - name: Copying over harbor.yml template
   template:
