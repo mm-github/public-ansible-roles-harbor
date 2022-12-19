@@ -36,7 +36,7 @@
 
 - name: Copying over harbor.yml template
   template:
-    src: harbor.yml-{{ harbor_release }}[:3].j2
+    src: harbor.yml-{{ config_version }}.j2
     dest: "{{ harbor_install_dir }}/harbor/harbor.yml"
   when:
     - not harbor_folder_st.stat.exists or (harbor_folder_st.stat.isdir is defined and not harbor_folder_st.stat.isdir)
@@ -50,7 +50,7 @@
 
 - name: Copying over prepare script
   template:
-    src: prepare-{{ harbor_release }}[:3].j2
+    src: prepare-{{ config_version }}.j2
     dest: "{{ harbor_install_dir }}/harbor/prepare"
     mode: a+x
   when:
