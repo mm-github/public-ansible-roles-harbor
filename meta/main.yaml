@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   role_name: harbor
-  author: "Pascal Watteel"
+  author: "Michele Modolo"
   description: Installs, Configures and Manages Harbor (docker)
   github_branch: master
   company:
@@ -30,10 +30,9 @@ galaxy_info:
   galaxy_tags:
     - docker
     - harbor
-    - vmware
     - registry
-    - repository
     - containers
     - compose
     - clair
+    - trivy
     - notary
