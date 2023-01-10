@@ -6,6 +6,12 @@ An Ansible Role that installs [Harbor](https://github.com/goharbor/harbor) on Li
 
 None.
 
+
+## Tests
+
+This role successfully installed and configured [Harbor 2.7.0](https://github.com/goharbor/harbor/releases/tag/v2.7.0) within Fedora Linux 36. OS compatibility can be found in `meta/main.yml`. 
+
+
 ## Role Variables
 
 For a complete list see `defaults/main.yaml`.
